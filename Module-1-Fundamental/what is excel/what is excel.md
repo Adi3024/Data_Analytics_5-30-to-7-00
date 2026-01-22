@@ -1,0 +1,1 @@
+Excel is basically to organize, calculate and visualize the information/data. 

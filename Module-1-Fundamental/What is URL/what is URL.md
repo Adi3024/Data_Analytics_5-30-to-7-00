@@ -1,0 +1,1 @@
+Basically it is UNIFORMED RESOURCE LOCATOR, which is used to find som specific location/Item/Image etc from particular source or location.

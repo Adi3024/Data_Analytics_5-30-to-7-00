@@ -1,0 +1,1 @@
+basically it serves information, data and services to other computer.

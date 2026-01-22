@@ -1,0 +1,1 @@
+Protocol is a set OR system of rules which controls or handle the procedure of data transferring from network.

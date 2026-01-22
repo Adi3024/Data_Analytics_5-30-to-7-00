@@ -1,0 +1,1 @@
+It is a process of collecting, organizing, analyzing ane interpreting of data.
