@@ -19,10 +19,12 @@ table contain column and rows
 ## what is column and rows in tables ?
 column : column in table also called filedname
 | id | name | email | password | age | salary |
+|----|------|-------|----------|-----|--------|
 | 1 | divyang | D@gmail.com | d123 | 27 | 59500 |
 
 rows : rows in formate of data stored
 | id | name | email | password | age | salary |
+|----|------|-------|----------|-----|--------|
 
 
 **USERS**
@@ -76,6 +78,7 @@ create database data_analytics_flipkart;
 
 **USERS**
 | column name | data type |
+|-------------|-----------|
 | id          | int (default size 11) primary key auto_increment |
 | name, email, password | char, varchar (0-255) |
 | address, message, comment | text |
@@ -112,5 +115,5 @@ create table USERS
     Age int,
     Salary Float,
     Department Varchar(60),
-    Country Varchar(60),
+    Country Varchar(60)
 );
