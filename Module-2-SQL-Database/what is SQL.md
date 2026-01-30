@@ -15,11 +15,23 @@ examples : mysql, sqllite, mongodb, oracle
 table is stored data in form of column and rows
 table contain column and rows
 
+id	name	email	password	age	salary
+1	divyang	D@gmail.com	d123	27	59500
+2	aarya	aarya@example.com	pass456	24	62000
+3	rohan	rohan@test.com	ro123	30	75000
+4	sneha	sneha@mail.com	sn789	28	58000
+5	kabir	kabir@web.com	kb999	32	85000
+6	isha	isha@domain.com	ish432	26	61000
+7	manav	manav@service.com	mn111	29	67000
+8	tara	tara@cloud.com	tr888	25	54000
+
+
 ## what is column and rows in tables ?
 column : column in table also called filedname
-id   name   age   salary   address
+id   name    email        password  age  salary
 
 rows : rows in formate of data stored
+
  **users**
  id   name   age   salary   address
  1    ABC    30     85000    rjt
