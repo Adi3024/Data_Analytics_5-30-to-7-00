@@ -95,15 +95,16 @@ create database data_analytics_flipkart;
 ```
 create table table name
 (
-    column name datatype(size) auto_incrementprimary key,
+    column name datatype(size) auto_increment primary key,
     .
     .
     .
     .
     column name datatype(size)
 )
+```
 
-**EXAMPLE**
+**EXAMPLE-1**
 
 ```
 create table USERS
@@ -117,3 +118,53 @@ create table USERS
     Department Varchar(60),
     Country Varchar(60)
 );
+
+```
+**EXAMPLE-2**
+```
+Create table Employee_Data_Records
+(
+    Employee_ID_Number int Auto_increment Primary key,
+    email_ID varchar(50),
+    Joining_Date varchar(40),
+    Position varchar(50),
+    Age varchar(10),
+    Phone_Number bigint(20),
+    Salary Float,
+    upload_Image blob,
+    Address text
+);
+```
+
+**ALTER**
+
+1. When we have to add any new column in table - ADD
+**SYNTAX for ADDING COLUMN IN TABLE**
+Alter table employee_Data_Records add Column Name Data Type(Size);
+
+2. When we have to add any new column after particular column - ADD -> AFTER
+**SYNTAX for ADDING COLUMN AFTER ANY PARTICULAR COULMN IN TABLE**
+Alter table employee_Data_Records add New Column Name Data type(size) after column name (after which column we have to add new column);
+
+3. When we have to delete any column from table - DROP
+**SYNTAX DELETE ANY COLUMN**
+alter table employee_Data_Recods Drop column name;
+
+
+**SYNTAX for DELETE ANY DATABASE**
+Drop database data_analytics_flipkart; (after drop database we never get back the data) 
+**SYNTAX for DELETE ANY TABLE**
+Drop table employee_Data_Records; (after drop table we never get back the data)
+
+
+4. When we have to change column name - CHANGE 
+**SYNTAX for CHANGE ANY COLUMN NAME**
+Alter table employee_Data_Records change column name New column name Data type(size);
+
+5. When we have to delete entire table - Truncate
+**SYNTAX for DELETE ENTIER TABLE**
+truncate table employee_Data_Records;
+
+**RENAME**
+**SYNTAX for RENAME ANY COLUMN**
+Rename table employee_Records
