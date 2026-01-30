@@ -15,6 +15,16 @@ examples : mysql, sqllite, mongodb, oracle
 table is stored data in form of column and rows
 table contain column and rows
 
+
+## what is column and rows in tables ?
+column : column in table also called filedname
+| id | name | email | password | age | salary |
+| 1 | divyang | D@gmail.com | d123 | 27 | 59500 |
+
+rows : rows in formate of data stored
+| id | name | email | password | age | salary |
+
+
 **USERS**
 | id | name | email | password | age | salary |
 |----|------|-------|----------|-----|--------|
@@ -28,17 +38,6 @@ table contain column and rows
 | 8 | tara | tara@cloud.com | tr888 | 25 | 54000 |
 | 9 | viraj | viraj@pro.com | vr555 | 31 | 72000 |
 | 10 | meera | meera@info.com | mr000 | 27 | 63000 |
-
-
-## what is column and rows in tables ?
-column : column in table also called filedname
-id   name    email        password  age  salary
-
-rows : rows in formate of data stored
-
- **users**
- id   name   age   salary   address
- 1    ABC    30     85000    rjt
 
 ## types of command in SQL ?
 1. DDL (Data Defination Language)
@@ -68,4 +67,50 @@ create database database name;
 **examples**
 ```
 create database data_analytics_app;
+or 
+create database data_analytics_flipkart;
+
 ```
+**How to create a table**
+**Chart of table create**
+
+**USERS**
+| column name | data type |
+| id          | int (default size 11) primary key auto_increment |
+| name, email, password | char, varchar (0-255) |
+| address, message, comment | text |
+| photo, file, pdf | varchar (0-255), blob |
+| DOB, Date | date, varchar (0-255) |
+| Datetime | datetime, varchar(0-255) |
+| Phone Number | int, bigint (default size 20) |
+| Price | int, Float, money |
+| Status | (Pending, confirmed) |
+| Attendance | (Absent, Present) |
+| long Data | enum (enumerated) |
+
+**Syntax of create table**
+```
+create table table name
+(
+    column name datatype(size) auto_incrementprimary key,
+    .
+    .
+    .
+    .
+    column name datatype(size)
+)
+
+**EXAMPLE**
+
+```
+create table USERS
+(
+    User_ID int AUTO_INCREMENT PRIMARY KEY,
+    Name Varchar(60),
+    Email Varchar(60),
+    Password Varchar(60),
+    Age int,
+    Salary Float,
+    Department Varchar(60),
+    Country Varchar(60),
+);
