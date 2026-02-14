@@ -189,12 +189,14 @@ DMl stands for data manupulation language DML is used to insert data | delete da
 
 1.INSERT     2.DELETE     3.UPDATE
 
-**INSERT**
+## INSERT
 
 **Sigle Data OR Rows Insert**
+
 INSERT into tbl_country(countryname) VALUES('india')
 
 **Multiple Data OR Rows Insert**
+
 INSERT into tbl_country(countryname) VALUES('uk'),('usa'),('china'),('russia')
 OR
  INSERT into tbl_country VALUES('null','srilanka'),('null','nigeria'),('null','uae'),('null','pakistan')
@@ -202,7 +204,7 @@ OR
 **Insert All Columns from one table into another**
 INSERT INTO archive_users SELECT * FROM users;
 
-**DELETE**
+## DELETE
 
 1. Used to delete all data from tables
 delete from users;
@@ -217,7 +219,7 @@ delete from users where user_id between 5 and 100;
 
 **Note after delete we will rollback our data using TCL**
 
-**UPDATE**
+## UPDATE
 
 **Update the rows or data**
 update users set name='umang',age=35 where user_id=3;
@@ -226,7 +228,7 @@ update users set name='umang',age=35 where user_id=3;
 ## DQL
 DQL stands for data query language DQL is used to fetch(select) data from tables
 
-**SELECT**
+## SELECT
 1. Select all data 
 ```
 select * from users;
@@ -339,7 +341,8 @@ select * from users where user_id in (2,4,5,7);
    MIN() : min is used to find the minimum value in a numeric column
    MAX() : max is used to find the maximum value in a numeric column
    
-   Examples of "Aggregate function"
+   **Examples of "Aggregate function"**
+
 select count(*) from users;
 OR
 select sum(salary) from users;
@@ -385,7 +388,7 @@ TIME() : time is used to return the current time
 
 **Note**: lastly we will learn about TCL (transactional control language) in next file
 
-Examples of Scalar function
+**Examples of Scalar function**
 select upper(name) from users;
 OR
 select lower(name) from users;
@@ -419,7 +422,7 @@ c. primary key is used to ensure that all values in a column are different
 d. primary key always define on single column.
 e. primary key cannot have null value
 
-Examples of Primary key
+**Examples of Primary key**
 ```
   create table users
   (
@@ -433,7 +436,7 @@ Examples of Primary key
   );
   ```
 
-  Examples in format
+  **Examples in format**
 
   | User id | Name  |Password| Age| Salary| Department | Country|
   |---------|-------|--------|----|-------|------------|--------|
@@ -453,7 +456,7 @@ Examples of Primary key
        c. foreign key is used to ensure that the value in a column must match the value in another table's primary key column
        d. foreign key can have null value
   
-    Examples of Foreign key
+    **Examples of Foreign key**
 
    **Create table country**
    | User id | Country_Name  |
@@ -492,7 +495,7 @@ create table users
  d. unique key can have null value one time only
  e. unique key can be defined on single column or multiple columns
 
-Examples of unique key
+**Examples of unique key**
 create table users
 (
 user_id int AUTO_INCREMENT primary key,
@@ -601,7 +604,7 @@ Create table STUDENTS;
 
 7. write a query to find the average age of students in each grade.
 ```
-SELECT avg(age) AS average_student_age from student;
+SELECT avg(age) AS average_student_age from student ;
 ```
 
 8. write a query to find the total number of students in each country.
@@ -612,6 +615,10 @@ SELECT avg(age) AS average_student_age from student;
 ```
 select max(grade) from student;
 ```
+OR
+```
+Select studentname from student where grade='A';
+
 10. write a query to update the grade of a student with a specific id.
 ```
 update student set grade='AA' where student_id=4;
@@ -631,9 +638,22 @@ delet from student where student_id='5';
 6. create a table named "orders" with the following columns: order_id (primary key), customer_id (foreign key referencing the customers table), product_id (foreign key referencing the products table), quantity, and order_date.
 7. insert at least 5 records into the orders table.   
 8. write a query to select all orders along with customer names and product names.
+SELECT order_id,customer_name,product_name FROM orders 
+JOIN customers ON orders.customer_id=customers.customer_id 
+JOIN product ON orders.product_id=product.product_id 
+
 9. write a query to find the total revenue generated from all orders.
+SELECT SUM(product_price * quantity) from orders 
+JOIN product ON orders.product_id=product.product_id
+
 10. write a query to find the most popular product based on the quantity ordered.
+SELECT SUM(quantity) AS most_popular_QTY, product_name from orders 
+JOIN product ON orders.product_id=product.product_id
+GROUP BY product_name 
+order BY most_popular_QTY DESC;
+
 11. write a query to update the stock of a product after an order is placed.
+
 12. write a query to delete an order with a specific order_id.
 
 
@@ -648,9 +668,23 @@ delet from student where student_id='5';
 8. create a table named "enrollments" with the following columns: enrollment_id (primary key), student_id (foreign key referencing the students table), course_id (foreign key referencing the courses table), and enrollment_date.
 9. insert at least 5 records into the enrollments table.
 10. write a query to select all enrollments along with student names and course names.
+SELECT tbl_enrollmets.*,student_name,course_name FROM tbl_enrollmets JOIN tbl_student on tbl_enrollmets.student_id=tbl_student.student_id JOIN tbl_course ON tbl_enrollmets.course_id=tbl_course.course_id;
+
 11. write a query to find the total number of students enrolled in each course.
+SELECT course_id, COUNT(student_id) from tbl_enrollmets group by course_id;
+
 12. write a query to find the faculty member teaching the most courses.
+SELECT faculty_id, COUNT(course_id) AS most_teaching_course
+FROM tbl_course
+GROUP BY faculty_id
+ORDER BY most_teaching_course DESC
+LIMIT 1;
+
 13. write a query to update the department of a faculty member with a specific faculty_id.
+UPDATE tbl_faculty SET department='Bsc.IT' where faculty_id=1;
+
 14. write a query to delete a student with a specific student_id.
+DELETE from tbl_student WHERE student_id=1
 
 **Note: after creating database and tables you will insert some data in that tables then you will apply all the queries on that data to understand better**
+
