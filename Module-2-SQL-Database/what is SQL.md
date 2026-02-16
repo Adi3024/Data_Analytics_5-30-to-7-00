@@ -599,6 +599,7 @@ Create table STUDENTS;
 
 6. write a query to select all students along with their country names.
 ```
+select student .*, country_Name from student join country on student.country_id=country.country_id;
 
 ```
 
@@ -609,7 +610,7 @@ SELECT avg(age) AS average_student_age from student ;
 
 8. write a query to find the total number of students in each country.
 ```
-
+select COUNT(student_id) as total_student from student group by country_id;
 ```
 9. write a query to find the student with the highest grade.
 ```
@@ -618,6 +619,7 @@ select max(grade) from student;
 OR
 ```
 Select studentname from student where grade='A';
+```
 
 10. write a query to update the grade of a student with a specific id.
 ```
@@ -638,24 +640,33 @@ delet from student where student_id='5';
 6. create a table named "orders" with the following columns: order_id (primary key), customer_id (foreign key referencing the customers table), product_id (foreign key referencing the products table), quantity, and order_date.
 7. insert at least 5 records into the orders table.   
 8. write a query to select all orders along with customer names and product names.
-SELECT order_id,customer_name,product_name FROM orders 
-JOIN customers ON orders.customer_id=customers.customer_id 
-JOIN product ON orders.product_id=product.product_id 
+```
+    SELECT order_id,customer_name,product_name FROM orders 
+    JOIN customers ON orders.customer_id=customers.customer_id 
+    JOIN product ON orders.product_id=product.product_id 
+```
 
 9. write a query to find the total revenue generated from all orders.
-SELECT SUM(product_price * quantity) from orders 
-JOIN product ON orders.product_id=product.product_id
-
+```
+    SELECT SUM(product_price * quantity) from orders 
+    JOIN product ON orders.product_id=product.product_id
+```
 10. write a query to find the most popular product based on the quantity ordered.
-SELECT SUM(quantity) AS most_popular_QTY, product_name from orders 
-JOIN product ON orders.product_id=product.product_id
-GROUP BY product_name 
-order BY most_popular_QTY DESC;
-
+```
+    SELECT SUM(quantity) AS most_popular_QTY, product_name from orders 
+    JOIN product ON orders.product_id=product.product_id
+    GROUP BY product_name 
+    order BY most_popular_QTY DESC;
+```
 11. write a query to update the stock of a product after an order is placed.
+```
+UPDATE product JOIN orders ON orders.product_id = product.product_id SET product.stock = product.stock - orders.quantity WHERE order_id= 1;
 
+```
 12. write a query to delete an order with a specific order_id.
-
+```
+Delete from orders where order_id=1;
+```
 
 **faculty based database**
 1. create a database named "university"
@@ -668,23 +679,189 @@ order BY most_popular_QTY DESC;
 8. create a table named "enrollments" with the following columns: enrollment_id (primary key), student_id (foreign key referencing the students table), course_id (foreign key referencing the courses table), and enrollment_date.
 9. insert at least 5 records into the enrollments table.
 10. write a query to select all enrollments along with student names and course names.
-SELECT tbl_enrollmets.*,student_name,course_name FROM tbl_enrollmets JOIN tbl_student on tbl_enrollmets.student_id=tbl_student.student_id JOIN tbl_course ON tbl_enrollmets.course_id=tbl_course.course_id;
+```
+ SELECT tbl_enrollmets.*,student_name,course_name FROM tbl_enrollmets 
+ JOIN tbl_student on tbl_enrollmets.student_id=tbl_student.student_id 
+ JOIN tbl_course ON tbl_enrollmets.course_id=tbl_course.course_id;
+```
 
 11. write a query to find the total number of students enrolled in each course.
+```
 SELECT course_id, COUNT(student_id) from tbl_enrollmets group by course_id;
+```
 
 12. write a query to find the faculty member teaching the most courses.
+```
 SELECT faculty_id, COUNT(course_id) AS most_teaching_course
 FROM tbl_course
 GROUP BY faculty_id
 ORDER BY most_teaching_course DESC
 LIMIT 1;
+```
 
 13. write a query to update the department of a faculty member with a specific faculty_id.
+```
 UPDATE tbl_faculty SET department='Bsc.IT' where faculty_id=1;
+```
 
 14. write a query to delete a student with a specific student_id.
+```
 DELETE from tbl_student WHERE student_id=1
+```
 
 **Note: after creating database and tables you will insert some data in that tables then you will apply all the queries on that data to understand better**
 
+
+## WHAT IS NORMALIZATION IN SQL
+   -> Normalization is a process where we normalize our tables for removed redundancy or dublicate format in tables.
+
+   **Types of Normalization**
+
+   1. 1NF
+   2. 2NF
+   3. 3NF 
+   4. 4NF
+
+   **1NF**
+   1NF is a normalization form in table to provides basic structures with PK(primary).
+
+
+   **examples**
+
+      ```
+    create table country
+    (
+    country_id int AUTO_INCREMENT primary key,
+    country_name varchar(255)
+    
+    )
+
+      ```
+   
+
+   **2NF**
+   2NF is a normalization form in table to provides basic structures with PK(primary key) and provides a relation between one table to another table using FK(foreign key).
+
+
+   **examples**
+
+      ```
+    create table country
+    (
+    country_id int AUTO_INCREMENT primary key,
+    country_name varchar(255)
+    
+    )
+
+      ```
+
+      ```
+     create table users
+    (
+    user_id int AUTO_INCREMENT primary key,
+    country_id int REFERENCES country(country_id),
+    name varchar(255),
+    age int,
+    address text 
+    )
+      ```
+
+   **3NF**
+   3NF is a normalization form in table to provides basic structures with PK(primary key) and provides a relation between one table to another table using FK(foreign key) with 3NF relations.
+
+   **examples**
+
+      ```
+    create table country
+    (
+    country_id int AUTO_INCREMENT primary key,
+    country_name varchar(255)
+    
+    )
+
+      ```
+     ```
+      create table department
+    (
+    department_id int AUTO_INCREMENT primary key,
+    dep_name varchar(255)
+    
+    )
+     ``` 
+     ```
+     create table users
+    (
+    user_id int AUTO_INCREMENT primary key,
+    country_id int REFERENCES country(country_id),
+    department_id int REFERENCES department(department_id),
+    name varchar(255),
+    age int,
+    address text 
+    )
+      ```
+
+
+ ## SQL JOINS
+   -> Sql join are used to join tables with match column data if data matched return and join tables if data not matched return null values.
+
+ ## types of joins 
+
+  1. join 
+  2. inner join 
+  3. outer join 
+     1. left outer join 
+     2. right outer join 
+     3. full outer join(this is not support)
+  4. cross join     
+
+ **examples of join**
+
+ sql join are used to join tables with match column data if data matched return and join tables if data not matched return null values.
+
+ select orders.*,customer_name,product_name from orders join customers on orders.customer_id=customers.customer_id join products on products.product_id=orders.product_id;
+
+ **examples of innerjoin**
+
+ sql join are used to join tables with match column data if data matched return and join tables if data not matched return null values.
+ Note : almost join and inner join is same 
+ select orders.*,customer_name,product_name from orders inner join customers on orders.customer_id=customers.customer_id inner join products on products.product_id=orders.product_id;
+
+ OR
+
+ select order_id,qty,customer_name,product_name from orders inner join customers on orders.customer_id=customers.customer_id inner join products  on products.product_id=orders.product_id;
+
+
+ **outer join**
+ 1. left join 
+ 2. right join 
+ 3. full join 
+
+ **left join** 
+ left join  are matched column data from first table of left rows with second table of left rows if data matched return all with join if data not matched return null data.
+
+ select orders.*,customer_name,product_name from orders left join customers on orders.customer_id=customers.customer_id left join products on products.product_id=orders.product_id;
+
+
+ **right join** 
+  right join  are matched column data from second table of right rows with first table of right rows if data matched return all with right join if data not matched return null data.
+
+  ``` 
+  select orders.*,customer_name,product_name from orders right join customers on orders.customer_id=customers.customer_id  right join products on products.product_id=orders.product_id;
+
+  OR
+
+  select customers.*,country_name from customers right join country on customers.country_id=country.country_id
+
+  OR
+
+  Note : get and join customers name in orders who is never made any orders
+
+  select orders.*,customer_name from orders right join customers on orders.customer_id=customers.customer_id
+
+   ```
+
+ **cross join**
+
+ cross join is used to multiply a tables with numbers of rows and return dublicate data from tables 
+
+ select * from customers cross join country;
