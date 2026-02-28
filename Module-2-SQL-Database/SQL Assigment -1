@@ -1,0 +1,201 @@
+Q-1. Statement to create the Contact table. 
+**ANSWER**
+CREATE TABLE Contact (
+    contact_id INT PRIMARY KEY,
+    company_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    street VARCHAR(150),
+    city VARCHAR(100),
+    state VARCHAR(50),
+    zip VARCHAR(10),
+    ismain BOOLEAN,
+    email VARCHAR(100),
+    phone VARCHAR(20),
+    FOREIGN KEY (company_id) REFERENCES Company(companyID)
+);
+
+```
+INSERT INTO Contact VALUES
+(1,1,'Dianne','Conner','500 Market St','Philadelphia','PA','19106',1,'dconner@urban.com','2155551111'),
+(2,2,'Robert','King','1140 Virginia Dr','Fort Washington','PA','19034',1,'rking@toll.com','2155552222'),
+(3,3,'Michael','Reed','1200 Innovation Dr','San Jose','CA','95110',1,'mreed@greentech.com','4085553333'),
+(4,4,'Samantha','Lopez','742 Harbor Blvd','Long Beach','CA','90802',1,'slopez@bluewave.com','5625554444'),
+(5,5,'James','Walker','88 Wall St','New York','NY','10005',1,'jwalker@summit.com','2125555555'),
+(6,6,'Karen','Mitchell','455 Industrial Rd','Detroit','MI','48201',1,'kmitchell@silver.com','3135556666'),
+(7,7,'Linda','Chen','230 Sunset Blvd','Los Angeles','CA','90028',1,'lchen@bright.com','3235557777'),
+(8,8,'David','Patel','910 Wellness Ave','Chicago','IL','60611',1,'dpatel@pioneer.com','3125558888'),
+(9,9,'Emily','Clark','1600 Tech Pkwy','Austin','TX','73301',1,'eclark@nextgen.com','5125559999'),
+(10,10,'Thomas','Nguyen','300 Main St','Denver','CO','80202',1,'tnguyen@metro.com','3035550000');
+```
+
+Q-2. Statement to create the Employee table.
+**ANSWER**
+CREATE TABLE Employee (
+    employeeID INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    salary DECIMAL(10,2),
+    hire_date DATE,
+    job_title VARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(20)
+);
+
+```
+INSERT INTO Employee VALUES
+(101,'Lesley','Bland',60000,'2020-03-15','Sales Rep','lbland@company.com','2155551212'),
+(102,'John','Smith',75000,'2019-06-10','Manager','jsmith@company.com','2155551313'),
+(103,'Sarah','Johnson',68000,'2021-01-12','Consultant','sjohnson@company.com','2155551414'),
+(104,'David','Brown',72000,'2018-09-23','Analyst','dbrown@company.com','2155551515'),
+(105,'Emma','Wilson',69000,'2022-02-14','Coordinator','ewilson@company.com','2155551616'),
+(106,'Daniel','Taylor',71000,'2017-07-19','Executive','dtaylor@company.com','2155551717'),
+(107,'Olivia','Martin',65000,'2020-11-11','Advisor','omartin@company.com','2155551818'),
+(108,'James','Anderson',73000,'2016-05-05','Director','janderson@company.com','2155551919'),
+(109,'Sophia','Thomas',67000,'2021-08-08','Specialist','sthomas@company.com','2155552020'),
+(110,'William','Lee',74000,'2015-12-12','VP','wlee@company.com','2155552121');
+```
+
+Q-3. Statement to create the ContactEmployee table.
+HINT: Use DATE as the datatype for ContactDate. It allows you to store the
+date in this format: YYYY-MM-DD (i.e., ‘2014-03-12’ for March 12, 2014). 
+
+**ANSWER**
+CREATE TABLE ContactEmployee (
+    contactemployee_id INT PRIMARY KEY,
+    contact_id INT,
+    employee_id INT,
+    contact_date DATE,
+    description VARCHAR(255),
+    FOREIGN KEY (contact_id) REFERENCES Contact(contact_id),
+    FOREIGN KEY (employee_id) REFERENCES Employee(employeeID)
+);
+
+```
+INSERT INTO ContactEmployee VALUES
+(1,1,101,'2026-01-05','Initial meeting'),
+(2,2,102,'2026-01-06','Project discussion'),
+(3,2,103,'2026-01-07','Follow up'),
+(4,3,104,'2026-01-08','Demo presentation'),
+(5,4,105,'2026-01-09','Negotiation'),
+(6,5,106,'2026-01-10','Budget review'),
+(7,6,107,'2026-01-11','Consultation'),
+(8,7,108,'2026-01-12','Contract signing'),
+(9,8,109,'2026-01-13','Planning'),
+(10,9,110,'2026-01-14','Closing discussion');
+```
+
+```
+CREATE TABLE Company (
+    companyID INT PRIMARY KEY,
+    companyName VARCHAR(100) NOT NULL,
+    street VARCHAR(150),
+    city VARCHAR(100),
+    state VARCHAR(50),
+    zip VARCHAR(10)
+);
+```
+
+```
+INSERT INTO Company VALUES
+(1,'Urban Outfitters, Inc.','500 Market St','Philadelphia','PA','19106'),
+(2,'Toll Brothers','1140 Virginia Dr','Fort Washington','PA','19034'),
+(3,'GreenTech Solutions','1200 Innovation Dr','San Jose','CA','95110'),
+(4,'BlueWave Logistics','742 Harbor Blvd','Long Beach','CA','90802'),
+(5,'Summit Financial Group','88 Wall St','New York','NY','10005'),
+(6,'Silverline Manufacturing','455 Industrial Rd','Detroit','MI','48201'),
+(7,'BrightStar Media','230 Sunset Blvd','Los Angeles','CA','90028'),
+(8,'Pioneer Health Services','910 Wellness Ave','Chicago','IL','60611'),
+(9,'NextGen Software LLC','1600 Tech Pkwy','Austin','TX','73301'),
+(10,'MetroBuild Construction','300 Main St','Denver','CO','80202');
+```
+
+
+Q-4. In the Employee table, the statement that changes Lesley Bland’s phone number
+to 215-555-8800.
+**ANSWER**
+UPDATE Employee SET phone = '2155558800' WHERE first_name = 'Lesley' AND last_name = 'Bland';
+
+Q-5. In the Company table, the statement that changes the name of “Urban
+Outfitters, Inc.” to “Urban Outfitters”.
+**ANSWER**
+UPDATE Company SET companyName = 'Urban Outfitters' WHERE companyName = 'Urban Outfitters, Inc.';
+
+Q-6. In ContactEmployee table, the statement that removes Dianne Connor’s contact
+event with Jack Lee (one statement).
+HINT: Use the primary key of the ContactEmployee table to specify the correct record to remove.
+**ANSWER**
+DELETE FROM ContactEmployee
+WHERE contact_id = 1;
+
+Q-7. Write the SQL SELECT query that displays the names of the employees that
+have contacted Toll Brothers (one statement). Run the SQL SELECT query in
+MySQL Workbench. Copy the results below as well.
+**ANSWER**
+SELECT DISTINCT e.first_name, e.last_name
+FROM Employee e
+JOIN ContactEmployee ce ON e.employeeID = ce.employee_id
+JOIN Contact c ON ce.contact_id = c.contact_id
+JOIN Company co ON c.company_id = co.companyID
+WHERE co.companyName = 'Toll Brothers';
+
+Q-8. What is the significance of “%” and “_” operators in the LIKE statement? 
+**ANSWER**
+% → Represents any number of characters
+_ → Represents exactly one character
+
+Q-9. Explain normalization in the context of databases. 
+**ANSWER**
+Normalization is the process of organizing data to:
+
+Remove duplication
+
+Avoid anomalies
+
+Maintain data integrity
+
+Common forms:
+1NF
+2NF
+3NF
+
+Q-10. What does a join in MySQL mean?
+**ANSWER**
+JOIN combines rows from multiple tables using related columns.
+
+Types:
+
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL JOIN
+
+Q-11. What do you understand about DDL, DCL, and DML in MySQL? 
+**ANSWER**
+DDL (Data Definition Language)
+
+CREATE
+
+ALTER
+
+DROP
+
+DML (Data Manipulation Language)
+
+INSERT
+
+UPDATE
+
+DELETE
+
+SELECT
+
+DCL (Data Control Language)
+
+GRANT
+
+REVOKE
+
+Q-12. What is the role of the MySQL JOIN clause in a query, and what are some
+common types of joins? 
+**ANSWER**
