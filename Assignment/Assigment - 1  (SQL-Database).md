@@ -83,6 +83,7 @@ Question - 6 :  In ContactEmployee table, the statement that removes Dianne Conn
                 event with Jack Lee (one statement).
 HINT: Use the primary key of the ContactEmployee table to specify the correct record to remove.
 **Answer:** 
+Delete tbl_contact_employee from 
 
 
 
@@ -95,10 +96,20 @@ Question - 7 : Write the SQL SELECT query that displays the names of the employe
 
 Question - 8 : What is the significance of “%” and “_” operators in the LIKE statement?
 **Answer:**
+1. & (percent) = It is reprents either zero, one or multiple characters.
+Eg. WHERE Firestname Like 'j%'; 
+
+2. _ (underscore) = It is reprents exactly one character .
+Eg. Where Firstname Like 'J_n';
 
 
 Question - 9 : Explain normalization in the context of databases.
 **Answer:**
+Normalization is the process of organizing data in databsase to : 1. Reduce data redundancy, 2. Avoid data inconsistency, and 3. Improve data integrity.
+
+Types of Normalizations are :
+1. NF : It is provide basic structre with primary key to table.
+2. NF : It is provide basic structre with primary key to table and provides a relation between one table to anyother table. 
 
 Question - 10 : What does a join in MySQL mean?
 **Answer:**

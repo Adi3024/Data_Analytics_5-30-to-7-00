@@ -50,3 +50,9 @@ b=200
 **Insert marks of 3 subjects**
 **
 
+
+
+
+
+
+  
