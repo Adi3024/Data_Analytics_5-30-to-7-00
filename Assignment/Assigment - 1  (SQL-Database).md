@@ -1,5 +1,7 @@
 Question -1 : Statement to create the Contact table
+
 **Answer:**
+```
 create table tbl_contact
 (
     contactID int primary key,
@@ -15,9 +17,12 @@ create table tbl_contact
     phone varchar(12),
     companyID int REFERENCES company(companyID)
 )
+```
 
 Question 2 : Statement to create the Employee table
+
 **Answer:**
+```
 create table tbl_employee
 (
     EmployeeID int primary key auto_increament,
@@ -29,9 +34,12 @@ create table tbl_employee
     Email varchar(45),
     phone varchar(12)
 )
+```
 
 Question 3 : Statement to create the ContactEmployee table
+
 **Answer:**
+```
 create table tbl_contact_employee
 (
     Contact_Employee_ID int primary key,
@@ -42,6 +50,7 @@ create table tbl_contact_employee
     contactID int REFERENCES tbl_contact(contactID),
     EmployeeID int REFERENCES tbl_employee(EmployeeID)
 )
+```
 
 ```
 create table tbl_comapny
@@ -67,56 +76,81 @@ Insert Into tbl_employee (FirstName, LastName, Salary, Hire_Date, JobTitle, Emai
 
 Question - 4 : In the Employee table, the statement that changes Lesley Bland’s phone number to  
                215-555-8800.
+
 **Answer:**
+```
 Update tbl_employee set Phone = '215-555-8800' where employeeID=6;
 OR
 update tble_employee set phone ='215-555-8800' where first_name = 'lesley' and last_name = 'bland';
-
+```
 
 Question - 5 : In the Company table, the statement that changes the name of “Urban
                Outfitters, Inc.” to “Urban Outfitters” 
-**Answer:**
-update tbl_company set companyName = 'Urban Outfitters' where companyName = 'UrbanOutfitters,Inc'.;
 
+**Answer:**
+```update tbl_company set companyName = 'Urban Outfitters' where companyName = 'UrbanOutfitters,Inc'.;
+```
 
 Question - 6 :  In ContactEmployee table, the statement that removes Dianne Connor’s contact
                 event with Jack Lee (one statement).
 HINT: Use the primary key of the ContactEmployee table to specify the correct record to remove.
-**Answer:** 
-Delete tbl_contact_employee from 
 
+**Answer:** 
+```
+Delete tbl_contact_employee from 
+```
 
 
 Question - 7 : Write the SQL SELECT query that displays the names of the employees that
                have contacted Toll Brothers (one statement). Run the SQL SELECT query in
                MySQL Workbench. Copy the results below as well. 
+
 **Answer:**
+```
 
-
+```
 
 Question - 8 : What is the significance of “%” and “_” operators in the LIKE statement?
+
 **Answer:**
+```
 1. & (percent) = It is reprents either zero, one or multiple characters.
 Eg. WHERE Firestname Like 'j%'; 
-
+```
+```
 2. _ (underscore) = It is reprents exactly one character .
 Eg. Where Firstname Like 'J_n';
-
+```
 
 Question - 9 : Explain normalization in the context of databases.
+
 **Answer:**
+```
 Normalization is the process of organizing data in databsase to : 1. Reduce data redundancy, 2. Avoid data inconsistency, and 3. Improve data integrity.
 
 Types of Normalizations are :
 1. NF : It is provide basic structre with primary key to table.
 2. NF : It is provide basic structre with primary key to table and provides a relation between one table to anyother table. 
+```
 
 Question - 10 : What does a join in MySQL mean?
+
 **Answer:**
+```
+
+```
 
 Question - 11 : What do you understand about DDL, DCL, and DML in MySQL?
+
 **Answer:**
+```
+
+```
 
 Question - 12 : What is the role of the MySQL JOIN clause in a query, and what are some
                 common types of joins?
+
 **Answer:**
+```
+
+```
