@@ -393,10 +393,32 @@ h6 {
 }
 
 .hero-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Gives slightly more space for text */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Start at top */
     gap: 4rem;
-    align-items: center;
+}
+
+.hero-text-col {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-image-col {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    padding-top: 3.5rem; /* Visual alignment with the name "DIVYANG D SHAH" */
+}
+
+.hero-full-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
 }
 
 .hero-content {
@@ -417,6 +439,8 @@ h6 {
     line-height: 1.1;
     white-space: nowrap;
 }
+
+/* Removed .title-wrapper and .name-inline-img as they were replaced by column layout */
 
 .hero-subtitle {
     font-size: 2.5rem;
@@ -1034,16 +1058,26 @@ h6 {
    -------------------------------------------------------------------------- */
 @media screen and (max-width: 992px) {
     .hero-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
     }
 
-    .hero-content {
+    .hero-text-col {
         align-items: center;
+    }
+
+    .hero-image-col {
+        padding-top: 2rem;
+        order: 2; /* Image moves below text */
+    }
+
+    .hero-full-img {
+        max-width: 300px;
     }
 
     .hero-title {
         font-size: 3.5rem;
+        white-space: normal; /* Allow name to wrap on tablets/phones */
     }
 
     .hero-subtitle {
@@ -1057,6 +1091,16 @@ h6 {
 
     .about-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-cta {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .hero-socials {
+        justify-content: center;
     }
 
     .about-stats {
@@ -1097,11 +1141,25 @@ h6 {
 
     .hero-title {
         font-size: 2.8rem;
+        white-space: normal;
     }
 
     .hero-subtitle {
         font-size: 1.5rem;
     }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* .title-wrapper and .name-inline-img removed from here */
 
     .footer-container {
         flex-direction: column;

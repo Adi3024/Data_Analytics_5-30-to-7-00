@@ -1,5 +1,5 @@
 /**
- * DA-DS Portfolio Interactivity
+ * DA Portfolio Interactivity
  */
 
 document.addEventListener('DOMContentLoaded', () => {
