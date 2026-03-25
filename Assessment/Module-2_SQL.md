@@ -1,8 +1,17 @@
-DA-SQL - Introduction and Getting started with SQL.
+MODULE -2 : DA-SQL - Introduction and Getting started with SQL.
 
 **Assessment - 1 :**
-
-Table Name - Worker:
+```
+CREATE TABLE Worker
+(
+    WORKER_ID INT PRIMARY KEY AUTO_INCREAMENT,
+    FIRST_NAME Varchar(50),
+    LAST_NAME Varchar(50),
+    SALARY FLOAT,
+    JOINING_DATE Datetime(),
+    DEPARTMENT Varchar(25)
+);
+```
 
 | WORKER_ID | FIRST_NAME | LAST_NAME | SALARY |  JOINING_DATE  | DEPARTMENT |
 |-----------|------------|-----------|--------|----------------|------------|
@@ -15,68 +24,87 @@ Table Name - Worker:
 |     7     |  Satish    |  Kumar    | 75000  | 1/20/2014 9:00 |   Account  |
 |     8     |  Geetika   |  Chuahan  | 90000  | 4/11/2014 9:00 |    Admin   |
 
+
 **Question - 1 :**
+
 Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
 
 **Answer**
+
 SELECT * FROM Worker ORDER BY First_name, Department DESC;
 
 
 **Question - 2 :**
+
 Write an SQL query to print details for Workers with the first names “Vipul” and “Satish” from the Worker table.
 
 **Answer**
+
 SELECT * FROM Worker WHERE First_Name = 'Vipul' OR First_Name = 'Satish';
 
 
 **Question - 3 :**
+
 Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
 
 **Answer**
+
 SELECT * FROM worker WHERE First_Name LIKE '%h' AND LENGTH(First_Name)='6';
 
 
 **Question - 4 :**
+
 Write an SQL query to print details of the Workers whose SALARY lies between 1.
 
 **Answer**
+
 SELECT * FROM Worker WHERE Salary BETWEEN 1 AND 100000;
 
 
 **Question - 5 :**
+
 Write an SQL query to fetch duplicate records having matching data in some fields of a table.
 
 **Answer**
+
 SELECT SALARY, JOINING_DATE, DEPARTMENT, COUNT(*) AS count FROM Worker GROUP BY SALARY, JOINING_DATE, DEPARTMENT
 HAVING COUNT(*) > 1;
 
 
 **Question - 6 :**
+
 Write an SQL query to show the top 6 records of a table. 
 
 **Answer**
+
 SELECT * FROM Worker Limit 6;
 
 
 **Question - 7 :**
+
 Write an SQL query to fetch the departments that have less than five people in them. 
 
 **Answer**
+
 SELECT Department, Count(Department) AS Number_of_Employee from Worker group by Department having count(department)<5;
 
 
 **Question - 8 :**
+
 Write an SQL query to show all departments along with the number of people in there.
 
 **Answer**
+
 SELECT Department, Count(*) AS Total_Employee from Worker group by Department;
 
 
 **Question - 9 :**
+
 Write an SQL query to print the name of employees having the highest salary in each
 department.
 
 **Answer**
+
 SELECT DEPARTMENT,FIRST_NAME,LAST_NAME, MAX(SALARY) as Highest_Salary FROM worker GROUP BY DEPARTMENT;
 
 
@@ -87,6 +115,23 @@ SELECT DEPARTMENT,FIRST_NAME,LAST_NAME, MAX(SALARY) as Highest_Salary FROM worke
 **Assessment - 2 :**
 Open school database, then select student table and use following SQL statements.
 TYPE THE STATEMENT, PRESS ENTER AND NOTE THE OUTPUT.
+```
+Create DATABASE School;
+```
+
+```
+CREATE TABLE Student
+(
+    StuID INT PRIMARY KEY AUTO_INCREAMENT,
+    StuName Varchar(50),
+    Sex Varchar(50),
+    Percentage FLOAT,
+    Class INT,
+    Sec Varchar(10),
+    Stream Varchar(20),
+    DOB DATE
+);
+```
 
 | StdID |     StdName     |  Sex   | Percentage | Class | Sec |  Stream  |    DOB     |
 |-------|-----------------|--------|------------|-------|-----|----------|------------|
