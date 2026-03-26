@@ -48,7 +48,7 @@ CREATE TABLE ContactEmployee (
 ```
 
 
-Create Company Table.
+**Create Company Table.**
 
 **Answer**
 ```
@@ -110,6 +110,7 @@ Question - 5 : In the Company table, the statement that changes the name of “U
 UPDATE Company SET CompanyName = 'Urban Outfitters' WHERE CompanyName = 'Urban Outfitters, Inc.';
 ```
 
+
 Question - 6 :  In ContactEmployee table, the statement that removes Dianne Connor’s contact event with Jack Lee (one statement).
 **HINT**: Use the primary key of the ContactEmployee table to specify the correct record to remove.
 
@@ -128,6 +129,7 @@ SELECT e.FirstName, e.LastName FROM Employee e JOIN ContactEmployee ce ON e.Empl
 JOIN Contact c ON ce.ContactID = c.ContactID JOIN Company co ON c.CompanyID = co.CompanyID
 WHERE co.CompanyName = 'Toll Brothers';
 ```
+
 **Output**
 ```
 +------------+----------+
@@ -182,8 +184,51 @@ Question - 10 : What does a join in MySQL mean ?
 
 **Answer**
 ```
-JOIN is used to combine data from multiple tables based on a related column. OR
-JOIN is used to combine rows from two or more tables based on a related column.
+1. JOIN is used to combine data from multiple tables based on a related column. OR
+2. JOIN is used to combine rows from two or more tables based on a related column.
+
+Types of JOIN
+1. INNER JOIN : Shows only matching data in both tables.
+2. LEFT JOIN  : Shows all data from left table and matching from right.
+3. RIGHT JOIN : Shows all data from right table and matching from left.
+4. FULL JOIN  : Shows all data from both tables.
+```
+
+
+Question - 11 : What do you understand about DDL, DCL and DML in MySQL ?
+
+**Answer**
+```
+DDL - Data Defination Language
+1. Data Defination Language is used to define or change structure of database/tables.
+2. DDL is used to create, modify, and delete database structures.
+
+Command in DDL are: 1.CREATE 2.ALTER 3.DROP 4.TRUNCATE 5.RENAME 6.CHANGE
+
+
+DCL - Data Control Language
+1. Data Control Language is used to control access/permissions.
+2. Used to control access/permissions.
+
+Command in DCL are : 1.GRANT 2.REVOKE
+
+
+DML - Data Manipulation Language
+1. Data Manipulation Language is used to work with data inside tables.
+2. Used to work with data inside tables.
+
+Command in DML are : 1.INSERT 2.UPDATE 3.DELETE 4.SELECT
+```
+
+
+Question - 12 : What is the role of the MySQL JOIN clause in a query, and what are some
+common types of joins ?
+
+**Answer**
+```
+1. The role of JOIN clause in MYSQL is used to combine data from two or more tables based on a related column.
+2. It helps you get data from multiple tables in one result.
+3. JOIN clause is used to combine data from multiple tables based on a related column, and common types include INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN.
 
 Types of JOIN
 1. INNER JOIN : Shows only matching data in both tables.
