@@ -1,6 +1,6 @@
-MODULE -2 : DA-SQL - Introduction and Getting started with SQL.
+**ASSESSMENT - MODULE 2 : DA-SQL - Introduction and Getting started with SQL.**
 
-**Assessment - 1 :**
+
 ```
 CREATE TABLE Worker
 (

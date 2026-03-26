@@ -1,3 +1,10 @@
+**ASSIGNMENT -MODULE 2_SQL**
+
+```
+Create Database MarketCo;
+```
+
+
 Question -1 : Statement to create the Contact table
 
 **Answer:**
@@ -70,10 +77,35 @@ create table tbl_comapny
 Insert Into tbl_employee (FirstName, LastName, Salary, Hire_Date, JobTitle, Email, Phone) 
     Values  ('Brij', 'Shekhda', 50000, '2014-01-01', 'Sr.Manager', 'b@gmail.com', 2147483647), 
             ('Krish', 'Patel', 55000, '2014-02-01', 'Manager', 'k@gmail.com', 2147483647), 
-            ('Het', 'Kakdiya', 60000, '2014-03-01', 'Sr.Manager-IT', 'h@gmail.com', 2147483647), ('Rahul', 'Sharma', 65000, '2014-04-01', 'Manager-CSE', 'r@gmail.com', 2147483647),
-            ('Priya', 'Patel', 70000, '2014-05-01', 'Associate_Manager-IT', 'p@gmail.com', 2147483647), ('Lesley', 'Bland', 75000, '2014-06-01', 'Sr.Manager-Marketing', 'l@gmail.com', 2147483647), ('Sneha', 'Reddy', 80000, '2014-07-01', 'Manager-mMarketing', 's@gmail.com', 2147483647), ('Vikram', 'Singh', 85000, '2014-08-01', 'Ass.Manager-Marketing', 'v@gmail.com', 2147483647), ('Anjali', 'Mehta', 90000, '2014-09-01', 'Sr.Manager-DataSci.', 'a@gmail.com', 2147483647), ('Rohan', 'Desai', 95000, '2014-10-01', 'Manager-DataSci.', 'd@gmail.com', 2147483647)                        
+            ('Het', 'Kakdiya', 60000, '2014-03-01', 'Sr.Manager-IT', 'h@gmail.com', 2147483647), 
+            ('Rahul', 'Sharma', 65000, '2014-04-01', 'Manager-CSE', 'r@gmail.com', 2147483647),
+            ('Priya', 'Patel', 70000, '2014-05-01', 'Associate_Manager-IT', 'p@gmail.com', 2147483647), 
+            ('Lesley', 'Blands', 75000, '2014-06-01', 'Sr.Manager-Marketing', 'l@gmail.com', 2147483647), 
+            ('Sneha', 'Reddy', 80000, '2014-07-01', 'Manager-mMarketing', 's@gmail.com', 2147483647), 
+            ('Vikram', 'Singh', 85000, '2014-08-01', 'Ass.Manager-Marketing', 'v@gmail.com', 2147483647), 
+            ('Anjali', 'Mehta', 90000, '2014-09-01', 'Sr.Manager-DataSci.', 'a@gmail.com', 2147483647), 
+            ('Rohan', 'Desai', 95000, '2014-10-01', 'Manager-DataSci.', 'd@gmail.com', 2147483647)                        
 ```
 
+
+
+**ADD 05 Records in tbl_company.**
+```
+Insert Into tbl_company (companyID, companyName, Street, City, State, Zip) 
+    Values (1,'UrbanOutfitters,Inc.','150 Feet Ring Road','Rajkot','Gujarat',360004),
+           (2,'TATA','Kalawad Road','Rajkot','Gujarat',360005),
+           (3,'Adani_Power.','Race Course','Rajkot','Gujarat',360002),
+           (4,'Birla','Raiya Chowkdi','Rajkot','Gujarat',360008),
+           (5,'Mahindra','TrikonBag','Rajkot','Gujarat',360006)                       
+```
+
+
+**ADD 05 Records in tbl_contact_employee**
+Insert Into tbl_contact_employee (ContacEmployeeID, ContactID, EmployeeID, ContactDate, Description)
+                          Values ()
+```
+
+```
 Question - 4 : In the Employee table, the statement that changes Lesley Bland’s phone number to  
                215-555-8800.
 
@@ -81,7 +113,7 @@ Question - 4 : In the Employee table, the statement that changes Lesley Bland’
 ```
 Update tbl_employee set Phone = '215-555-8800' where employeeID=6;
 OR
-update tble_employee set phone ='215-555-8800' where first_name = 'lesley' and last_name = 'bland';
+update tble_employee set phone ='215-555-8800' where first_name = 'lesley' and last_name = 'blands';
 ```
 
 Question - 5 : In the Company table, the statement that changes the name of “Urban
