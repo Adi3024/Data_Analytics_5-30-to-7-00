@@ -8,7 +8,7 @@ CREATE TABLE Worker
     FIRST_NAME Varchar(50),
     LAST_NAME Varchar(50),
     SALARY FLOAT,
-    JOINING_DATE Datetime(),
+    JOINING_DATE Datetime,
     DEPARTMENT Varchar(25)
 );
 ```
@@ -112,9 +112,12 @@ SELECT DEPARTMENT,FIRST_NAME,LAST_NAME, MAX(SALARY) as Highest_Salary FROM worke
 
 
 
+
 **Assessment - 2 :**
+
 Open school database, then select student table and use following SQL statements.
 TYPE THE STATEMENT, PRESS ENTER AND NOTE THE OUTPUT.
+
 ```
 Create DATABASE School;
 ```
