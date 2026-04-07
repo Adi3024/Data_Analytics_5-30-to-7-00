@@ -71,11 +71,14 @@ INSERT INTO Company VALUES (1, 'Toll Brothers', '150 Ring Road', 'Rajkot', 'Guja
 **OUTPUT**
 ```
 
-|CompanyID|      CompanyName     |   Street    |   City  | State |  Zip |
-|---------|----------------------|-------------|---------|-------|------|
-|    1    |     Toll Brothers    |150 Ring Road|  Rajkot |Gujarat|360004|  
-|    2    |Urban Outfitters, Inc.| Raiya Chowk |  Rajkot |Gujarat|360005|
-|    3    |     Tommy Hilfiger   |Narayan Nagar|Ahmedabad|Gujarat|380015|
+## Company Table
+
+| CompanyID | CompanyName            | Street         | City      | State   | Zip    |
+|-----------|------------------------|----------------|-----------|---------|--------|
+| 1         | Toll Brothers          | 150 Ring Road  | Rajkot    | Gujarat | 360004 |
+| 2         | Urban Outfitters       | Raiya Chowk    | Rajkot    | Gujarat | 360005 |
+| 3         | Tommy Hilfiger         | Narayan Nagar  | Ahmedabad | Gujarat | 380015 |
+
 
 ```
 
