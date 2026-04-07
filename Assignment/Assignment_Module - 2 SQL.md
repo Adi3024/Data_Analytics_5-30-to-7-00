@@ -68,6 +68,7 @@ INSERT INTO Company VALUES (1, 'Toll Brothers', '150 Ring Road', 'Rajkot', 'Guja
                            (3, 'Tommy Hilfiger', 'Narayan Nagar', 'Ahmedabad', 'Gujarat', 380015);
 ```
 
+
 **OUTPUT**
 
 ## Company Table
@@ -76,8 +77,9 @@ INSERT INTO Company VALUES (1, 'Toll Brothers', '150 Ring Road', 'Rajkot', 'Guja
 | CompanyID | CompanyName            | Street         | City      | State   | Zip    |
 |-----------|------------------------|----------------|-----------|---------|--------|
 | 1         | Toll Brothers          | 150 Ring Road  | Rajkot    | Gujarat | 360004 |
-| 2         | Urban Outfitters       | Raiya Chowk    | Rajkot    | Gujarat | 360005 |
+| 2         | Urban Outfitters,Inc.  | Raiya Chowk    | Rajkot    | Gujarat | 360005 |
 | 3         | Tommy Hilfiger         | Narayan Nagar  | Ahmedabad | Gujarat | 380015 |
+
 
 
 
@@ -88,6 +90,18 @@ INSERT INTO Contact VALUES (1, 1, 'Dianne', 'Connor'),
                            (3, 3, 'Paul', 'Walker');
 ```
 
+**OUTPUT**
+
+## Contact Table
+
+|ContactID|CompanyID|FirstName|LastName|
+|---------|---------|---------|--------|
+|    1    |    1    |  Dianne | Conner |
+|    2    |    2    |   Vin   | Diesel |
+|    3    |    3    |  Paul   | Walker |
+
+
+
 **ADD RECORDS into Employee Table**
 ```
 INSERT INTO Employee VALUES (1, 'Jack', 'Lee', '9995563278'),
@@ -95,12 +109,35 @@ INSERT INTO Employee VALUES (1, 'Jack', 'Lee', '9995563278'),
                             (3, 'Jordana', 'Brewster', '6359587415');
 ```
 
+**OUTPUT**
+
+# Employee Table
+
+| EmployeeID | FirstName | LastName |   Phone    |
+|------------|-----------|----------|------------|
+|    1       |   Jack    |   Lee    | 9995563278 |
+|    2       |  Lesley   |  Bland   | 8899562317 |
+|    3       |  Jordana  | Brewster | 6359587415 |
+
+
+
 **ADD RECORDS into ContactEmployee Table**
 ```
 INSERT INTO ContactEmployee VALUES (1, 1, 1),
                                    (2, 2, 2),
                                    (3, 3, 3);
 ```
+
+
+**OUTPUT**
+
+## ContactEmployee Table
+
+|ContactEmployeeID|ContactID|EmployeeID|
+|-----------------|---------|----------|
+|        1        |    1    |    1     |
+|        2        |    2    |    2     |
+|        3        |    3    |    3     |
 
 
 Question - 4 : In the Employee table, the statement that changes Lesley Bland’s phone number to 215-555-8800.
@@ -114,6 +151,14 @@ UPDATE Employee SET Phone = '215-555-8800' WHERE FirstName = 'Lesley' AND LastNa
 UPDATE Employee SET Phone = '215-555-8800' WHERE EmployeeID = 2;
 ```
 
+**OUTPUT**
+
+| EmployeeID | FirstName | LastName |   Phone    |
+|------------|-----------|----------|------------|
+|    1       |   Jack    |   Lee    | 9995563278 |
+|    2       |  Lesley   |  Bland   |215-555-8800|
+|    3       |  Jordana  | Brewster | 6359587415 |
+
 
 Question - 5 : In the Company table, the statement that changes the name of “Urban Outfitters, Inc.” to “Urban Outfitters”.
 
@@ -121,6 +166,15 @@ Question - 5 : In the Company table, the statement that changes the name of “U
 ```
 UPDATE Company SET CompanyName = 'Urban Outfitters' WHERE CompanyName = 'Urban Outfitters, Inc.';
 ```
+
+**OUTPUT**
+
+| CompanyID | CompanyName            | Street         | City      | State   | Zip    |
+|-----------|------------------------|----------------|-----------|---------|--------|
+| 1         | Toll Brothers          | 150 Ring Road  | Rajkot    | Gujarat | 360004 |
+| 2         | Urban Outfitters       | Raiya Chowk    | Rajkot    | Gujarat | 360005 |
+| 3         | Tommy Hilfiger         | Narayan Nagar  | Ahmedabad | Gujarat | 380015 |
+
 
 
 Question - 6 :  In ContactEmployee table, the statement that removes Dianne Connor’s contact event with Jack Lee (one statement).
@@ -130,6 +184,14 @@ Question - 6 :  In ContactEmployee table, the statement that removes Dianne Conn
 ```
 DELETE FROM ContactEmployee WHERE ContactEmployeeID = 1;
 ```
+
+**OUTPUT**
+
+|ContactEmployeeID|ContactID|EmployeeID|
+|-----------------|---------|----------|
+|        2        |    2    |    2     |
+|        3        |    3    |    3     |
+
 
 
 Question - 7 : Write the SQL SELECT query that displays the names of the employees that have contacted Toll Brothers (one statement). 
@@ -142,14 +204,12 @@ JOIN Contact c ON ce.ContactID = c.ContactID JOIN Company co ON c.CompanyID = co
 WHERE co.CompanyName = 'Toll Brothers';
 ```
 
-**Output**
-```
-+------------+----------+
+**OUTPUT**
+
 | FirstName  | LastName |
-+------------+----------+
+|------------|----------|
 | Jack       | Lee      |
-+------------+----------+
-```
+
 
 
 Question - 8 : What is the significance of “%” and “_” operators in the LIKE statement ?
