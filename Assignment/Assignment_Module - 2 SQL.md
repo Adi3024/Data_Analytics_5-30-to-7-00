@@ -20,7 +20,6 @@ CREATE TABLE Contact (
 );
 ```
 
-
 Question 2 : Statement to create the Employee table.
 
 **Answer**
@@ -68,6 +67,18 @@ INSERT INTO Company VALUES (1, 'Toll Brothers', '150 Ring Road', 'Rajkot', 'Guja
                            (2, 'Urban Outfitters, Inc.', 'Raiya Chowk', 'Rajkot', 'Gujarat', 360005),
                            (3, 'Tommy Hilfiger', 'Narayan Nagar', 'Ahmedabad', 'Gujarat', 380015);
 ```
+
+**OUTPUT**
+```
+
+|CompanyID|      CompanyName     |   Street    |   City  | State |  Zip |
+|---------|----------------------|-------------|---------|-------|------|
+|    1    |     Toll Brothers    |150 Ring Road|  Rajkot |Gujarat|360004|  
+|    2    |Urban Outfitters, Inc.| Raiya Chowk |  Rajkot |Gujarat|360005|
+|    3    |     Tommy Hilfiger   |Narayan Nagar|Ahmedabad|Gujarat|380015|
+
+```
+
 
 **ADD RECORDS into Contact Table**
 ```
