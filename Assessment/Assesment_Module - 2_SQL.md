@@ -290,7 +290,7 @@ Select StdName, DOB from student ;
 | Dipesh Pulkit    | 14/09/2003 |
 | JAHANVI Puri     | 11/7/2008  |
 | Sanam Kumar      | 3/8/1998   |
-| SAHIL SARAS      | 56         |
+| SAHIL SARAS      | 11/7/2008  |
 | AKSHARA AGARWAL  | 10/1/1996  |
 | STUTI MISHRA     | 11/23/2008 |
 | HARSH AGARWAL    | 3/8/1998   |
