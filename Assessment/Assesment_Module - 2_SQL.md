@@ -167,8 +167,6 @@ SELECT Department, Count(*) AS Total_Employee from Worker group by Department;
 
 **OUTPUT**
 
-Output:
-
 | Department | Total_Employee |
 |------------|----------------|
 | HR         | 2              |
@@ -187,9 +185,6 @@ SELECT DEPARTMENT,FIRST_NAME,LAST_NAME, MAX(SALARY) as Highest_Salary FROM worke
 ```
 
 **OUTPUT**
-
-Output:
-
 
 | DEPARTMENT | FIRST_NAME | LAST_NAME | Higest_Salary |
 |------------|------------|-----------|---------------|
@@ -328,7 +323,6 @@ Select StdName, Stream, Percentage from Student where percentage > 80;
 ```
 
 **OUTPUT**
-Output:
 
 | StdName          | Stream   | Percentage |
 |------------------|----------|------------|
@@ -348,8 +342,6 @@ Select * From Student where Stream = 'Science' AND Percentage > 75;
 ```
 
 **OUTPUT**
-
-Output:
 
 | StdID | StdName          | Sex    | Percentage | Class | Sec | Stream   | DOB        |
 |-------|------------------|--------|------------|-------|-----|----------|------------|
