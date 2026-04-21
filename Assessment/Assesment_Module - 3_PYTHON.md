@@ -180,18 +180,29 @@ app.menu()
 
 Design a Python class SchoolManagement that helps manage student admissions and
 records. The system should support:
+
 ➔ New Admission:
+
 ● Collect student name, age, class (1–12), and guardian's mobile number.
 ● Assign a unique student ID automatically.
 ● Validate age: must be between 5 and 18.
 ● Validate mobile number: must be 10 digits.
+
 ➔ View Student Details:
+
 ● Allow lookup using student ID.
+
 ➔ Update Student Info:
+
 ● Update mobile number or class.
+
 ➔ Remove Student Record:
+
 ● Remove a student using their student ID.
+
 ➔ Exit System
+
+
 **Answer**
 
 ```
@@ -397,17 +408,26 @@ app.menu()
 
 Design a Python class BusReservation that simulates a basic bus ticket booking system.
 Features should include:
+
 ➔ Show Available Routes:
+
 ● Predefined city routes with fixed prices.
 ● Example: "Mumbai to Pune - ₹500", "Delhi to Jaipur - ₹600", etc.
+
 ➔ Book Ticket:
+
 ● Enter passenger name, age, mobile, and route.
 ● Assign seat number (max 40 per bus per route).
 ● Generate a unique ticket ID.
+
 ➔ View Ticket:
+
 ● Lookup using ticket ID.
+
 ➔ Cancel Ticket:
+
 ● Cancel the ticket if it exists.
+
 ➔ Exit
 
 
