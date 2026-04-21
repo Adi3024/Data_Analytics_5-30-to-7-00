@@ -1,19 +1,23 @@
-# Question - 1 : # Healthcare Industry # 
-# Design a Python class ClinicAppointment that manages patient appointments in a clinic.
-# The system should have the following features:
-# Book Appointment:
-# Prompt for patient name, age, mobile number, and preferred doctor.
-# Show time slots (10am, 11am, 12pm, 2pm, 3pm).
-# Check slot availability and confirm booking.
-# View/Cancel Appointment:
-# Allow patient to view or cancel their appointment using mobile number.
-# Doctor Availability:
-# Maintain a maximum of 3 appointments per time slot per doctor.
-# Data Persistence:
-# Store appointments in memory only (no files/dbs required).
+**Question - 1  : Healthcare Industry**
+
+Design a Python class ClinicAppointment that manages patient appointments in a clinic.
+The system should have the following features:
+➔ Book Appointment:
+● Prompt for patient name, age, mobile number, and preferred doctor.
+● Show time slots (10am, 11am, 12pm, 2pm, 3pm).
+● Check slot availability and confirm booking.
+➔ View/Cancel Appointment:
+● Allow patient to view or cancel their appointment using mobile number.
+➔ Doctor Availability:
+● Maintain a maximum of 3 appointments per time slot per doctor.
+➔ Data Persistence:
+● Store appointments in memory only (no files/dbs required).
 
 
-## ANSWER ##
+
+**ANSWER**
+```
+Python
 
 class ClinicAppointment:
     def __init__(self):
@@ -115,9 +119,12 @@ class ClinicAppointment:
 # Run Application
 app = ClinicAppointment()
 app.menu()
+```
 
 
-# OUTPUT EXAMPLE: #
+
+**OUTPUT EXAMPLE**
+```
 # --- Clinic Appointment System ---
 # 1. Book Appointment
 # 2. View Appointment
@@ -158,27 +165,30 @@ app.menu()
 # Enter mobile number: 6353592742
 # ✅ Appointment cancelled successfully!
 
+```
 
 
+**Question - 2 : School Management System**
 
-# Question - 2 : # School Management System #
-# Design a Python class SchoolManagement that helps manage student admissions and records.
-# The system should support:
-# New Admission:
-# Collect student name, age, class (1–12), and guardian's mobile number.
-# Assign a unique student ID automatically.
-# Validate age: must be between 5 and 18.
-# Validate mobile number: must be 10 digits.
-# View Student Details:
-# Allow lookup using student ID.
-# Update Student Info:
-# Update mobile number or class.
-# Remove Student Record:
-# Remove a student using their student ID.
-# Exit System
+Design a Python class SchoolManagement that helps manage student admissions and
+records. The system should support:
+➔ New Admission:
+● Collect student name, age, class (1–12), and guardian's mobile number.
+● Assign a unique student ID automatically.
+● Validate age: must be between 5 and 18.
+● Validate mobile number: must be 10 digits.
+➔ View Student Details:
+● Allow lookup using student ID.
+➔ Update Student Info:
+● Update mobile number or class.
+➔ Remove Student Record:
+● Remove a student using their student ID.
+➔ Exit System
+**Answer**
 
+```
+Python
 
-## Answer ##
 
 class SchoolManagement:
     def __init__(self):
@@ -335,9 +345,10 @@ class SchoolManagement:
 # ------------------ RUN APP ------------------ #
 app = SchoolManagement()
 app.menu()
+```
 
-
-# OUTPUT EXAMPLE: #
+**OUTPUT EXAMPLE**
+```
 # ====== School Management System ======    
 # 1. New Admission
 # 2. View Student Details   
@@ -371,26 +382,30 @@ app.menu()
 # Enter choice: 4   
 # Enter Student ID: 1
 # ✅ Student record removed successfully!
-  
+```
 
 
-# Question - 3 : # Transport Reservation System (Bus Ticketing) #
-# Design a Python class BusReservation that simulates a basic bus ticket booking system.
-# Features should include:
-# Show Available Routes:
-# Predefined city routes with fixed prices.
-# Example: "Mumbai to Pune - ₹500", "Delhi to Jaipur - ₹600", etc.
-# Book Ticket:
-# Enter passenger name, age, mobile, and route.
-# Assign seat number (max 40 per bus per route).
-# Generate a unique ticket ID.
-# View Ticket:
-# Lookup using ticket ID.
-# Cancel Ticket:
-# Cancel the ticket if it exists.
-# Exit
+**Question - 3 : Transport Reservation System (Bus Ticketing)**
 
-## ANSWER ##
+Design a Python class BusReservation that simulates a basic bus ticket booking system.
+Features should include:
+➔ Show Available Routes:
+● Predefined city routes with fixed prices.
+● Example: "Mumbai to Pune - ₹500", "Delhi to Jaipur - ₹600", etc.
+➔ Book Ticket:
+● Enter passenger name, age, mobile, and route.
+● Assign seat number (max 40 per bus per route).
+● Generate a unique ticket ID.
+➔ View Ticket:
+● Lookup using ticket ID.
+➔ Cancel Ticket:
+● Cancel the ticket if it exists.
+➔ Exit
+
+
+**ANSWER**
+```
+Python
 
 class BusReservation:
     def __init__(self):
@@ -548,9 +563,10 @@ class BusReservation:
 # ------------------ RUN APP ------------------ #
 app = BusReservation()
 app.menu()
+```
 
-
-# OUTPUT EXAMPLE: #
+**OUTPUT EXAMPLE**
+```
 # Bus Reservation System
 # 1. Show Routes
 # 2. Book Ticket
@@ -596,3 +612,4 @@ app.menu()
 # Enter your choice: 4
 # Enter Ticket ID: 1
 # ✅ Ticket cancelled successfully!
+```
