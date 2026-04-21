@@ -1,7 +1,7 @@
 **Question - 1  : Healthcare Industry**
 
-Design a Python class ClinicAppointment that manages patient appointments in a clinic.
-The system should have the following features:
+# Design a Python class ClinicAppointment that manages patient appointments in a clinic.
+# The system should have the following features:
 ➔ Book Appointment:
 ● Prompt for patient name, age, mobile number, and preferred doctor.
 ● Show time slots (10am, 11am, 12pm, 2pm, 3pm).
