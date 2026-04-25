@@ -1183,3 +1183,403 @@ print(dict1)
 ```
 
 Question-54 Write a Python program to check multiple keys exists in a dictionary 
+
+**Answer**
+
+```
+PYTHON
+
+dict1 = {'name': 'Divyang', 'age': 28, 'city': 'Rajkot'}
+
+keys = ['name', 'age']
+
+if all(key in dict1 for key in keys):
+    print("All keys exist")
+else:
+    print("Some keys are missing")
+```
+
+**OUTPUT**
+
+```
+All keys exist
+```
+
+Question-55 Write a Python script to merge two Python dictionaries 
+
+**ANswer**
+
+```
+PYTHON 
+
+dict1 = {'a': 10, 'b': 20}
+dict2 = {'c': 30, 'd': 40}
+
+dict1.update(dict2)
+
+print(dict1)
+```
+
+**OUTPUT**
+
+```
+{'a': 10, 'b': 20, 'c': 30, 'd': 40}
+```
+
+
+Question-56 Write a Python program to map two lists into a dictionary
+            Sample output: Counter ({'a': 400, 'b': 400,’d’: 400, 'c': 300}).
+
+**Answer**
+
+```
+PYTHON
+
+keys = ['a', 'b', 'c', 'd']
+values = [400, 400, 300, 400]
+
+dict1 = dict(zip(keys, values))
+
+print(dict1)
+```
+
+**OUTPUT**
+
+```
+{'a': 400, 'b': 400, 'c': 300, 'd': 400}
+```
+
+Question-57 Write a Python program to find the highest 3 values in a dictionary.
+
+**Answer**
+
+```
+PYTHON
+
+dict1 = {'a': 50, 'b': 80, 'c': 20, 'd': 100, 'e': 70}
+
+values = sorted(dict1.values(), reverse=True)
+
+print("Highest 3 values:", values[:3])
+```
+
+**OUTPUT**
+
+```
+Highest 3 values: [100, 80, 70]
+```
+
+
+Question-58 Write a Python program to combine values in python list of dictionaries.
+Sample data: [{'item': 'item1', 'amount': 400}, {'item': 'item2', 'amount':
+300}, o {'item': 'item1', 'amount': 750}]
+Expected Output: Counter ({'item1': 1150, 'item2': 300})
+
+**Answer**
+
+```
+PYTHON
+
+from collections import Counter
+
+list1 = [
+    {'item': 'item1', 'amount': 400},
+    {'item': 'item2', 'amount': 300},
+    {'item': 'item1', 'amount': 750}
+]
+
+result = Counter()
+
+for d in list1:
+    result[d['item']] += d['amount']
+
+print(result)
+
+```
+
+**OUTPUT**
+
+```
+Counter({'item1': 1150, 'item2': 300})
+```
+
+
+Question-59 Write a Python program to create a dictionary from a string.
+            Note: Track the count of the letters from the string. 
+
+**Answer**
+
+```
+PYTHON
+
+string = "Divyang"
+
+dict1 = {}
+
+for i in string:
+    dict1[i] = dict1.get(i, 0) + 1
+
+print(dict1)
+```
+
+**OUTPUT**
+
+```
+{'D': 1, 'i': 1, 'v': 1, 'y': 1, 'a': 1, 'n': 1, 'g': 1}
+```
+
+
+Question-60 Sample string:'w3resource' 
+            Expected output:{'3': 1,’s’: 1, 'r': 2, 'u': 1, 'w': 1, 'c': 1, 'e': 2, 'o': 1}
+
+**Answer**
+
+```
+PYTHON
+
+string = "w3resource"
+
+dict1 = {}
+
+for i in string:
+    dict1[i] = dict1.get(i, 0) + 1
+
+print(dict1)
+```
+
+**OUTPUT**
+
+```
+{'w': 1, '3': 1, 'r': 2, 'e': 2, 's': 1, 'o': 1, 'u': 1, 'c': 1}
+```
+
+
+Question-61 Write a Python function to calculate the factorial of a number (a non negative integer)
+
+**Answer**
+
+```
+PYTHON
+
+num = 5
+fact = 1
+
+for i in range(1, num + 1):
+    fact *= i
+
+print("Factorial:", fact)
+```
+
+**OUTPUT**
+
+```
+Factorial: 120
+```
+
+
+Question-62 Write a Python function to check whether a number is in a given range.
+
+**Answer**
+
+```
+PYTHON
+
+num = 15
+
+if num in range(10, 21):
+    print("Number is in range")
+else:
+    print("Number is not in range")
+```
+
+**OUTPUT**
+
+```
+Number is in range
+```
+
+
+Question-63 Write a Python function to check whether a number is perfect or not. 
+
+**Answer**
+
+```
+PYTHON
+
+num = 28
+sum = 0
+
+for i in range(1, num):
+    if num % i == 0:
+        sum += i
+
+if sum == num:
+    print("Perfect Number")
+else:
+    print("Not a Perfect Number")
+```
+
+**OUTPUT**
+
+```
+Perfect Number
+```
+
+
+Question-64 Write a Python function that checks whether a passed string is palindrome or not.
+
+**Answer**
+
+```
+PYTHON
+
+string = "madam"
+
+if string == string[::-1]:
+    print("Entered String is :", "Palindrome")
+else:
+    print(Entered String is not :", "Not Palindrome")
+```
+
+**OUTPUT**
+
+```
+Entered String is : Palindrome
+```
+
+
+Question-65 How Many Basic Types of Functions Are Available in Python? 
+
+**Answer**
+
+```
+
+There are mainly 2 basic types of functions in Python:
+
+1. Built-in Functions
+
+These are functions already provided by Python.
+Examples: print(), len(), type(), input()
+
+2. User-defined Functions
+
+These are functions created by the user using the 'def' keyword according to their needs.
+```
+
+Question-66 How can you pick a random item from a list or tuple? 
+
+**ANswer**
+
+```
+PYTHON
+
+import random
+
+list1 = [10, 20, 30, 40]
+
+print(random.choice(list1))
+```
+
+**OUTPUT**
+
+```
+30 
+
+40
+
+10
+```
+
+
+Question-67 How can you pick a random item from a range?
+
+**Answer**
+
+```
+PYTHON
+
+import random
+
+print(random.choice(range(1, 11)))
+```
+
+**OUTPUT**
+
+```
+5
+
+7
+
+1
+```
+
+
+Question-68 How can you get a random number in python?
+
+**Answer**
+
+```
+PYTHON
+
+import random
+
+print(random.randint(1, 100))
+```
+
+**OUTPUT**
+
+```
+73
+
+55
+
+10
+```
+
+
+Question-69 How will you set the starting value in generating random numbers? 
+
+**ANswer**
+
+```
+PYTHON
+
+import random
+
+random.seed(10)
+
+print(random.randint(1, 100))
+```
+
+**OUTPUT**
+
+```
+74
+
+74
+
+74
+```
+
+Question-70 How will you randomize the items of a list in place? 
+
+**Answer**
+
+```
+PYTHON
+
+import random
+
+list1 = [10, 20, 30, 40, 50]
+
+random.shuffle(list1)
+
+print(list1)
+```
+
+**OUTPUT**
+
+```
+[10, 40, 20, 30, 50]
+```
+
