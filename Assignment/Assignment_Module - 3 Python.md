@@ -1539,7 +1539,7 @@ print(random.randint(1, 100))
 
 Question-69 How will you set the starting value in generating random numbers? 
 
-**ANswer**
+**Answer**
 
 ```
 PYTHON
@@ -1583,3 +1583,421 @@ print(list1)
 [10, 40, 20, 30, 50]
 ```
 
+Question-71 What is File function in python? What are keywords to create
+            and write file. 
+
+**Answer**
+
+```
+A file function in Python is used to create, read, write, and manage files.
+
+Keywords used:
+"w" → Write only (creates file if not exists)
+"w+"→ write/read if file dees not exist create a new file
+"a" → Append only (append on file file and create new file if not exist)
+"a+"→ append and read create a new if not exist
+"r" → Read only
+"r+"→ read/write only
+```
+
+Question-72 Write a Python program to read an entire text file. 
+
+**Answer**
+
+```
+PYTHON
+
+file = open("demo.txt", "r")
+print(file.read())
+file.close()
+```
+
+**OUTPUT**
+
+```
+Hello Python
+Welcome to File Handling
+```
+
+
+Question-73 Write a Python program to append text to a file and display the text. 
+
+**Answer**
+
+```
+PYTHON
+
+file = open("demo.txt", "a")
+file.write("\nWelcome to Python")
+file.close()
+
+file = open("demo.txt", "r")
+print(file.read())
+file.close()
+```
+
+**OUTPUT**
+
+```
+Welcome to Python
+```
+
+
+Question-74 Write a Python program to read first n lines of a file.
+
+**Answer**
+
+```
+PYTHON
+
+n = 2
+
+file = open("demo.txt", "r")
+
+for i in range(n):
+    print(file.readline())
+
+file.close()
+```
+
+**OUTPUT**
+
+```
+Welcome to Python
+```
+Question-75 Write a Python program to read last n lines of a file.
+
+**Answer**
+
+```
+PYTHON
+
+n = 3
+
+file = open("demo.txt", "r")
+lines = file.readlines()
+
+for line in lines[-n:]:
+    print(line)
+
+file.close()
+Welcome to Python
+```
+
+**OUTPUT**
+
+```
+Welcome to Python programming. This is a demo file.
+```
+
+Question-76 Write a Python program to read a file line by line and store it into a list
+
+**Answer**
+
+```
+PYTHON
+
+file = open("demo.txt", "r")
+
+list1 = file.readlines()
+
+print(list1)
+
+file.close()
+```
+
+**OUTPUT**
+
+```
+['\n', 'Welcome to Python\n', 'Welcome to Python programming. This is a demo file.']
+```
+
+Question-77 Write a Python program to read a file line by line store it into a variable.
+
+**Answer**
+
+```
+PYTHON
+
+file = open("demo.txt", "r")
+
+data = file.read()
+
+print(data)
+
+file.close()
+```
+
+**OUTPUT**
+
+```
+Welcome to Python
+Welcome to Python programming. This is a demo file.
+```
+
+Question-78 Write a python program to find the longest words.
+
+**Answer**
+
+```
+PYTHON
+
+string = "Python is easy and powerful language"
+
+words = string.split()
+
+longest = max(words, key=len)
+
+print("Longest word is:", longest)
+
+```
+
+**OUTPUT**
+
+```
+Longest word is : powerful
+```
+
+Question-79 Write a Python program to count the number of lines in a text file.
+
+**Answer**
+
+```
+PYTHON
+
+file = open("demo.txt", "r")
+
+count = len(file.readlines())
+
+print("Number of lines is:", count)
+
+file.close()
+```
+
+**OUTPUT**
+
+```
+Number of lines is : 3
+```
+
+Question-80 Write a Python program to count the frequency of words in a file.
+
+**Answer**
+
+```
+PYTHON
+
+file = open("demo.txt", "r")
+
+data = file.read().split()
+
+dict1 = {}
+
+for word in data:
+    dict1[word] = dict1.get(word, 0) + 1
+
+print(dict1)
+
+file.close()
+```
+
+**OUTPUT**
+
+```
+{'Welcome': 2, 'to': 2, 'Python': 2, 'programming.': 1, 'This': 1, 'is': 1, 'a': 1, 'demo': 1, 'file.': 1}
+```
+
+Question-81 Write a Python program to write a list to a file.
+
+**Answer**
+
+```
+PYTHON
+
+list1 = ["Python", "Java", "C++"]
+
+file = open("demo.txt", "w")
+
+for item in list1:
+    file.write(item + "\n")
+
+file.close()
+```
+
+**OUTPUT**
+
+```
+in the demo file i get the below list.
+Python
+Java
+C++
+```
+
+Question-82 Write a Python program to copy the contents of a file to another file.
+
+**Answer**
+
+```
+PYTHON
+
+file1 = open("demo.txt", "r")
+data = file1.read()
+
+file2 = open("copy.txt", "w")
+file2.write(data)
+
+file1.close()
+file2.close()
+```
+
+
+Question-83 Explain Exception handling? What is an Error in Python?
+
+**Answer**
+
+```
+**Exception Handling in Python**
+
+Exception handling is used to handle runtime errors in a program so that the program does not stop suddenly. It helps the program continue smoothly by using try, except, else, and finally blocks.
+
+
+**Error in Python**
+
+An error is a problem in the program that causes it to stop or give wrong output. Errors can happen due to wrong syntax, wrong logic, or invalid operations during execution.
+
+Examples:
+
+1. SyntaxError
+2. ZeroDivisionError
+3. NameError
+4. TypeError
+
+```
+
+
+Question-84 How many except statements can a try-except block have? Name Some built-in exception classes:
+
+**Answer**
+
+```
+1. A try block can have multiple except statements.
+2. Each except block is used to handle a different type of error.
+3. Python allows multiple except blocks to handle different exceptions separately.
+
+# Some Built-in Exception Classes in Python #
+1. ValueError → when wrong value is given
+2. TypeError → when wrong data type is used
+3. ZeroDivisionError → when dividing by zero
+5.NameError → when variable is not defined
+6. IndexError → when list index is out of range
+7. FileNotFoundError → when file does not exist
+
+```
+
+
+Question-85 When will the else part of try-except-else be executed?
+
+**Answer**
+
+```
+1. The else block is executed only when no exception occurs in the try block.
+2. If the code inside try runs successfully without any error, then the else block will run. If an 
+   exception occurs, the else block is skipped.
+
+**FOR EXAMPLE**
+
+try:
+    num = 10 / 2
+except ZeroDivisionError:
+    print("Error occurred")
+else:
+    print("Division successful")
+
+**OUTPUT**
+
+Division successful
+
+=> This means the else block runs only when the try block executes without errors.
+```
+
+
+Question-86 Can one block of except statements handle multiple exception?
+
+**Answer**
+
+```
+1. Yes, one except block can handle multiple exceptions in Python.
+2. We can write multiple exception names inside parentheses () separated by commas. 
+3. If any one of those exceptions occurs, that single except block will handle it.
+```
+
+
+Question-87 When is the finally block executed?
+
+**Answer**
+
+```
+1. The finally block always executes whether an exception occurs or not.
+2. It is mainly used for cleanup work like closing files.
+```
+
+Question-88 What happens when „1‟== 1 is executed?
+
+**Answer**
+
+```
+1. It returns False because '1' is a string and 1 is an integer.
+2. Python compares both value and data type, so different data types are not equal.
+3. Even though both look similar, one is text ('1') and the other is a number (1), so Python treats 
+   them as different values.
+```
+
+Question-89 How Do You Handle Exceptions with Try/Except/Finally in Python? Explain with coding 
+            snippets.
+
+**Answer**
+
+```
+Exception handling is used to prevent the program from stopping suddenly when an error occurs.
+
+try → contains the code that may cause an error
+except → handles the error if it occurs
+finally → always executes whether an error occurs or not
+
+**EXAMPLE**
+try:
+    num = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+finally:
+    print("Execution completed")
+```
+
+**OUTPUT**
+
+```
+Cannot divide by zero
+Execution completed
+```
+
+Question-90 Write python program that user to enter only odd numbers, else will raise an exception. 
+
+**Answer**
+
+```
+PYTHON
+
+num = int(input("Enter an odd number: "))
+
+if num % 2 == 0:
+    raise Exception("Even number entered!")
+else:
+    print("Valid odd number")
+```
+
+**OUTPUT**
+
+```
+Enter an odd number: 3 
+Valid odd number
+```
