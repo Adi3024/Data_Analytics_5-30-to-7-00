@@ -7,17 +7,48 @@
 import pandas as pd 
 import matplotlib.pyplot as plt 
 import mysql.connector
-# database connection 
-db=mysql.connector.connect(
-    
-    host="localhost",
-    user="root", 
-    password="admin",
-    database="task_manager_appdb"
-)
 
-cursor=db.cursor()
+
+def get_db_connection():
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password=""
+    )
+    cursor = conn.cursor()
+    cursor.execute("CREATE DATABASE IF NOT EXISTS task_manager_appdb")
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="task_manager_appdb"
+    )
+
+
+# database connection
+db = get_db_connection()
+cursor = db.cursor()
 print("connection successfully stablished")
+
+
+def create_table_if_not_exists():
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS tasks (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        priority VARCHAR(50) NOT NULL,
+        status VARCHAR(50) NOT NULL
+    )
+    """)
+    db.commit()
+    print("Table 'tasks' is ready")
+
+
+create_table_if_not_exists()
 
 # add task create a function 
 
@@ -46,13 +77,13 @@ def display_task():
     
 # update task
 def update_task():
-     taskid=int(input("Enter task id for delete :"))
+     taskid=int(input("Enter task id for update :"))
      title=input("Enter task Name* :")
      priority=input("Enter your task priority* :")
      status=input("Enter your task status* :")
      
      sql="""
-     update tasks set title=%s, priority=%s,status=%s where id=%s
+     "update tasks set title=%s, priority=%s,status=%s where id=%s"
      """
      data=(title,priority,status,taskid)
      cursor.execute(sql,data)

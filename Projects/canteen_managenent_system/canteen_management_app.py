@@ -6,20 +6,66 @@
 # pip install pandas matplotlib mysql-connector-python 
 # create an app and import all dependancies.
 
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import mysql.connector
 
+
+def get_db_connection():
+    host = "localhost"
+    user = "root"
+    password = ""
+    database = "canteen_management_appdb"
+
+    try:
+        conn = mysql.connector.connect(
+            host=host,
+            user=user,
+            password=password
+        )
+        if conn.is_connected():
+            cursor = conn.cursor()
+            cursor.execute("CREATE DATABASE IF NOT EXISTS canteen_management_appdb")
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            conn = mysql.connector.connect(
+                host=host,
+                user=user,
+                password=password,
+                database=database
+            )
+            if conn.is_connected():
+                print("Connection successfully established")
+                return conn
+    except mysql.connector.Error as e:
+        print(f"Database connection failed: {e}")
+        return None
+
+
+def ensure_table_exists():
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS items (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            price DECIMAL(10, 2) NOT NULL,
+            category VARCHAR(50) NOT NULL
+        )
+    """)
+    conn.commit()
+    cursor.close()
+
+
 # database connection
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="admin",       
-    database="canteen_management_appdb"
-)
+conn = get_db_connection()
+if conn is None:
+    raise SystemExit("Unable to connect to the MySQL database. Please check the server and credentials.")
 
 cursor = conn.cursor()
-print("connection successfully established")
+ensure_table_exists()
 
 # ADD TASK create a function
 def add_item():
@@ -136,7 +182,7 @@ while True:
         visualize_item_data()
     elif choice == '6':
         show_item_pie_chart()
-    elif choice == '7':
+    elif choice == '7': 
         load_item_df()
     elif choice == '8':
         print("Exiting the application.")

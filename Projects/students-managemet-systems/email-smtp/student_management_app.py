@@ -14,7 +14,7 @@ import mysql.connector
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="admin",       
+    password="",       
     database="student_management_appdb"
 )
 
